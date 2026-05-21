@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>INAYA — Agence de marketing numérique · Douala, Cameroun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ================== THEMES ================== */
+  :root,
+  [data-theme="light"]{
+    --bg:#f5efe3;
+    --bg-soft:#eee5d4;
+    --surface:#ffffff;
+    --surface-2:#fbf6ec;
+    --line:rgba(10,14,20,.10);
+    --line-2:rgba(10,14,20,.18);
+    --ink:#0a0e14;
+    --fg:#0a0e14;
+    --fg-2:#4a5260;
+    --fg-3:#8a929e;
+    --cream:#f5efe3;
+    --on-primary:#ffffff;
+    --primary:#1d6fd1;
+    --primary-2:#3a8af0;
+    --primary-deep:#0c4b9c;
+    --primary-glow:rgba(29,111,209,.18);
+    --accent:#e1342c;
+    --accent-2:#ff5249;
+    --accent-soft:#ffd9d6;
+    --shadow-soft:0 30px 80px -40px rgba(10,14,20,.18);
+    --hero-bg:#f7f1e6;
+    --strip-bg:transparent;
+    --nav-bg:rgba(255,255,255,.78);
+    --tag-fg:#1a2230;
+    --partner-bg:#ffffff;
+    --stat-grad:linear-gradient(180deg,#0a0e14,#4a5260);
+  }
+  [data-theme="dark"]{
+    --bg:#0a0e14;
+    --bg-soft:#0f141c;
+    --surface:#0f141c;
+    --surface-2:#161c26;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.16);
+    --ink:#0a0e14;
+    --fg:#f3f5f9;
+    --fg-2:#aab3c2;
+    --fg-3:#737d8c;
+    --cream:#f5efe3;
+    --on-primary:#ffffff;
+    --primary:#1d6fd1;
+    --primary-2:#3a8af0;
+    --primary-deep:#0c4b9c;
+    --primary-glow:rgba(29,111,209,.35);
+    --accent:#e1342c;
+    --accent-2:#ff5249;
+    --accent-soft:#ffd9d6;
+    --shadow-soft:0 30px 80px -40px rgba(0,0,0,.6);
+    --hero-bg:#f5efe3;
+    --strip-bg:transparent;
+    --nav-bg:rgba(15,20,28,.78);
+    --tag-fg:#1a2230;
+    --partner-bg:#ffffff;
+    --stat-grad:linear-gradient(180deg,#fff,#c8d0dc);
+  }
+  [data-theme="ivory"]{
+    --bg:#fbf7ee;
+    --bg-soft:#f3ecdc;
+    --surface:#ffffff;
+    --surface-2:#fff;
+    --line:rgba(10,14,20,.08);
+    --line-2:rgba(10,14,20,.16);
+    --fg:#1a1814;
+    --fg-2:#52483b;
+    --fg-3:#9c8e78;
+    --hero-bg:#ffffff;
+    --nav-bg:rgba(255,255,255,.85);
+    --partner-bg:#fbf7ee;
+    --shadow-soft:0 30px 80px -40px rgba(60,40,20,.15);
+    --stat-grad:linear-gradient(180deg,#1a1814,#52483b);
+  }
+
+  /* ================== PALETTES ================== */
+  [data-palette="bluered"]{ --primary:#1d6fd1; --accent:#e1342c; --primary-2:#3a8af0; --primary-deep:#0c4b9c; --accent-2:#ff5249;}
+  [data-palette="bluemono"]{ --primary:#1d6fd1; --accent:#0c4b9c; --primary-2:#3a8af0; --primary-deep:#0a3a7a; --accent-2:#0c4b9c;}
+  [data-palette="ink"]{ --primary:#1a1814; --accent:#e1342c; --primary-2:#3a3530; --primary-deep:#0a0808; --accent-2:#ff5249;}
+  [data-palette="solar"]{ --primary:#1d6fd1; --accent:#f5a623; --primary-2:#3a8af0; --primary-deep:#0c4b9c; --accent-2:#ffc24a;}
+  [data-palette="forest"]{ --primary:#0f6e4a; --accent:#e1342c; --primary-2:#1c9268; --primary-deep:#084a30; --accent-2:#ff5249;}
+
+  /* ================== FONTS ================== */
+  [data-typo="editorial"]{ --font-display:"Bricolage Grotesque", "DM Sans", sans-serif; --font-body:"DM Sans", system-ui, sans-serif; --font-mono:"JetBrains Mono", monospace;}
+  [data-typo="serif"]{ --font-display:"Instrument Serif", Georgia, serif; --font-body:"Manrope", system-ui, sans-serif; --font-mono:"JetBrains Mono", monospace;}
+  [data-typo="tech"]{ --font-display:"Space Grotesk", system-ui, sans-serif; --font-body:"Space Grotesk", system-ui, sans-serif; --font-mono:"JetBrains Mono", monospace;}
+  [data-typo="modern"]{ --font-display:"Manrope", system-ui, sans-serif; --font-body:"Manrope", system-ui, sans-serif; --font-mono:"JetBrains Mono", monospace;}
+
+  /* ================== DENSITY ================== */
+  [data-density="compact"]{ --section-gap:72px; --card-pad:28px; --hero-pad:28px 32px 32px;}
+  [data-density="normal"]{ --section-gap:120px; --card-pad:44px; --hero-pad:36px 44px 44px;}
+  [data-density="airy"]{ --section-gap:180px; --card-pad:60px; --hero-pad:48px 56px 56px;}
+
+  /* ================== RADIUS ================== */
+  :root{ --r-md:22px; --r-lg:34px; --r-xl:48px; }
+
+  /* ================== HEADING CASE ================== */
+  [data-case="caps"] h1,
+  [data-case="caps"] h2,
+  [data-case="caps"] h3{ text-transform:uppercase; letter-spacing:-0.01em; }
+
+  /* ================== TEXTURES ================== */
+  [data-texture="grid"] body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px; opacity:.7;
+  }
+  [data-texture="dots"] body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:radial-gradient(var(--line-2) 1px, transparent 1.5px);
+    background-size:24px 24px; opacity:.45;
+  }
+  [data-texture="grain"] body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* ================== ANIMATIONS ================== */
+  [data-anim="off"] *,
+  [data-anim="off"] *::before,
+  [data-anim="off"] *::after{ animation:none !important; transition:none !important;}
+  [data-anim="off"] .strip-track{ animation:none !important; }
+
+  /* ================== ACCENT STYLE ================== */
+  [data-accent="swipe"] .accent::after{
+    content:""; position:absolute; left:0; right:0; bottom:.04em; height:.08em;
+    background:var(--accent); transform-origin:left; animation:swipe 1.4s .3s cubic-bezier(.7,0,.2,1) both;
+  }
+  [data-accent="highlight"] .accent{ background:var(--accent-soft); padding:0 .15em; border-radius:.18em; color:var(--ink); }
+  [data-accent="marker"] .accent{ color:var(--accent); }
+  [data-accent="box"] .accent{
+    border:2px solid var(--accent); padding:0 .15em; border-radius:.12em;
+    box-shadow:4px 4px 0 var(--primary);
+  }
+  @keyframes swipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  /* ================== BASE ================== */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--fg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.55;
+    transition:background .3s, color .3s;
+  }
+  body > *{position:relative; z-index:1}
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    letter-spacing:-0.02em;
+    line-height:1.02;
+    margin:0;
+  }
+  [data-typo="serif"] h1, [data-typo="serif"] h2, [data-typo="serif"] h3{ font-weight:400; letter-spacing:-0.01em; }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  section{padding:0 24px}
+  .container{max-width:1240px;margin:0 auto}
+  .accent{font-style:normal; color:var(--primary); position:relative; display:inline-block}
+
+  /* ================== NAV ================== */
+  .nav-wrap{position:sticky;top:14px;z-index:50;padding:0 24px;transition:top .25s}
+  .nav{
+    max-width:1240px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--nav-bg);
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:10px 12px 10px 22px;
+    box-shadow:var(--shadow-soft);
+  }
+  .nav-logo img{height:24px;width:auto}
+  [data-theme="dark"] .nav-logo img{filter:brightness(1.1) drop-shadow(0 0 0 white)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--fg-2);transition:color .2s}
+  .nav-links a:hover{color:var(--fg)}
+  .nav-cta{
+    background:var(--fg); color:var(--bg);
+    padding:11px 18px 11px 20px;
+    border-radius:999px;
+    font-size:14px; font-weight:500;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .2s, background .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px); background:var(--primary); color:#fff}
+  .nav-cta .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent)}
+  @media (max-width:860px){.nav-links{display:none}.nav-cta{padding:9px 14px;font-size:13px}}
+
+  /* ================== HERO ================== */
+  .hero{margin-top:20px}
+  .hero-card{
+    position:relative;
+    background:var(--hero-bg);
+    color:var(--ink);
+    border-radius:var(--r-xl);
+    padding:var(--hero-pad);
+    overflow:hidden;
+    isolation:isolate;
+    min-height:560px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-soft);
+  }
+  .hero-top{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid rgba(10,14,20,.15);
+    padding:8px 14px; border-radius:999px;
+    font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--tag-fg);
+    background:rgba(255,255,255,.4);
+  }
+  .hero-tag .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);position:relative}
+  .hero-tag .pulse:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--accent);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.6);opacity:0}}
+  .hero-stars{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--tag-fg)}
+  .hero-stars .s{color:var(--accent);letter-spacing:1px}
+  .hero-h{
+    font-size:clamp(44px, 6.4vw, 92px);
+    margin-top:42px;
+    max-width:13ch;
+    position:relative;
+    color:var(--ink);
+  }
+  .hero-grid{
+    margin-top:48px;
+    display:grid; grid-template-columns:1.1fr 1fr 1fr;
+    gap:24px; align-items:end;
+    position:relative;
+  }
+  .hero-lead{font-size:16px;color:#2c3543;max-width:38ch;line-height:1.55;margin:0}
+  .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px; border-radius:999px;
+    font-size:14px;font-weight:500;
+    transition:transform .2s, background .2s, color .2s, border-color .2s;
+    border:1px solid transparent; cursor:pointer;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--primary);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:rgba(10,14,20,.2)}
+  .btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn .arrow{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+  .btn-primary .arrow{background:var(--accent);color:#fff}
+  .hero-meta{
+    text-align:right;
+    display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+  }
+  .hero-meta b{font-family:var(--font-display);font-size:44px;font-weight:600;color:var(--ink);line-height:1}
+  .hero-meta span{font-size:13px;color:#5b6573}
+
+  /* Hero photo — laptop image */
+  .hero-photo{
+    position:absolute; right:32px; top:74px; bottom:0;
+    width:46%; max-width:560px;
+    border-radius:36px 36px 0 0;
+    overflow:hidden; pointer-events:none;
+    background-color:#0a0e14;
+    background-image:url("assets/hero-laptop.png");
+    background-size:cover; background-position:center;
+  }
+  .hero-photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(245,239,227,0) 60%, var(--hero-bg) 100%);
+    opacity:.35;
+  }
+  [data-hero-photo="solid"] .hero-photo{ background:linear-gradient(160deg,var(--primary),var(--primary-deep)); }
+  [data-hero-photo="solid"] .hero-photo::after{ display:none; }
+  [data-hero-photo="pattern"] .hero-photo{
+    background:repeating-linear-gradient(135deg, var(--primary) 0 24px, var(--primary-deep) 24px 48px);
+  }
+  [data-hero-photo="pattern"] .hero-photo::after{ display:none; }
+
+  .spark{position:absolute; width:46px; height:46px; left:32px; top:120px; color:var(--primary)}
+  .spark.red{color:var(--accent); left:auto; right:38%; top:200px; width:30px;height:30px}
+  @media (max-width:980px){
+    .hero-card{padding:28px 24px}
+    .hero-photo{position:relative; width:100%; max-width:none; right:auto; top:0; height:300px; margin-top:28px;border-radius:28px}
+    .hero-grid{grid-template-columns:1fr;gap:18px}
+    .hero-meta{text-align:left;align-items:flex-start}
+    .spark{display:none}
+  }
+
+  /* ================== STATS ================== */
+  .stats{margin-top:28px}
+  .stats-row{
+    display:grid; grid-template-columns:repeat(4, 1fr);
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--r-lg); padding:28px 12px;
+    box-shadow:var(--shadow-soft);
+  }
+  .stat{text-align:center; padding:10px 18px; border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat b{
+    font-family:var(--font-display);
+    font-size:clamp(34px, 4vw, 54px);
+    font-weight:600;
+    background:var(--stat-grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    display:block; line-height:1;
+  }
+  .stat b sup{color:var(--primary-2);font-size:.55em;margin-left:2px;-webkit-text-fill-color:var(--primary)}
+  .stat span{display:block;color:var(--fg-3);font-size:13px;margin-top:10px;letter-spacing:.02em}
+  @media (max-width:780px){
+    .stats-row{grid-template-columns:repeat(2,1fr); gap:0; padding:18px 8px}
+    .stat{border-bottom:1px solid var(--line); border-right:none; padding:14px}
+    .stat:nth-child(odd){border-right:1px solid var(--line)}
+    .stat:nth-last-child(-n+2){border-bottom:none}
+  }
+
+  /* ================== ABOUT ================== */
+  .about{margin-top:var(--section-gap)}
+  .section-eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--fg-3); margin-bottom:18px;
+  }
+  .section-eyebrow:before{content:""; width:24px; height:1px; background:var(--primary)}
+  .about-grid{display:grid; grid-template-columns:1.05fr 1fr; gap:60px; align-items:start}
+  .about-h{font-size:clamp(36px, 4.4vw, 60px);max-width:18ch}
+  .about-p{color:var(--fg-2);font-size:16px;max-width:46ch}
+  .about-p b{color:var(--fg);font-weight:600}
+  .about-cards{display:grid; grid-template-columns:1.4fr 1fr; gap:18px; margin-top:32px}
+  .img-slot{
+    aspect-ratio:4/5;
+    border-radius:var(--r-md);
+    position:relative; overflow:hidden;
+    border:1px solid var(--line);
+    background:#1a2230;
+    box-shadow:var(--shadow-soft);
+  }
+  .img-slot img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .img-slot.team{
+    aspect-ratio: 4/5;
+  }
+  .img-slot.b{margin-top:36px}
+  .img-tag{
+    position:absolute; left:14px; top:14px;
+    background:var(--primary); color:#fff;
+    border-radius:999px; padding:8px 14px;
+    font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    z-index:2;
+  }
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:32px}}
+
+  /* ================== EXPERTISES ================== */
+  .expertises{margin-top:80px}
+  .exp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:32px}
+  .exp-h{font-size:clamp(34px,3.8vw,52px);max-width:18ch}
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .exp{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r-md);
+    padding:32px 28px 28px;
+    overflow:hidden;
+    transition:border-color .25s, transform .25s, box-shadow .25s;
+    box-shadow:var(--shadow-soft);
+  }
+  .exp:hover{border-color:var(--primary);transform:translateY(-3px)}
+  .exp-num{
+    position:absolute;right:24px;top:22px;
+    font-family:var(--font-display); font-size:64px; font-weight:600;
+    color:transparent;
+    -webkit-text-stroke:1px var(--line-2);
+    line-height:1; opacity:.7;
+    transition:color .25s, -webkit-text-stroke-color .25s;
+  }
+  .exp:hover .exp-num{color:color-mix(in srgb, var(--primary) 18%, transparent);-webkit-text-stroke-color:var(--primary)}
+  .exp-icon{
+    width:48px;height:48px;border-radius:14px;
+    background:color-mix(in srgb, var(--primary) 14%, transparent);
+    color:var(--primary);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:80px;
+  }
+  .exp h3{font-family:var(--font-display);font-size:22px;font-weight:600;line-height:1.2}
+  .exp p{color:var(--fg-2);font-size:14px;margin-top:10px}
+  @media (max-width:860px){.exp-grid{grid-template-columns:1fr}.exp-icon{margin-bottom:48px}}
+
+  /* ================== SERVICES ================== */
+  .services{margin-top:var(--section-gap)}
+  .services-wrap{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    padding:var(--card-pad);
+    position:relative; overflow:hidden;
+    box-shadow:var(--shadow-soft);
+  }
+  .services-wrap:before{
+    content:""; position:absolute; inset:-1px;
+    background:radial-gradient(700px 350px at 80% -10%, var(--primary-glow), transparent 60%);
+    pointer-events:none;
+  }
+  .services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;position:relative}
+  .services-h{font-size:clamp(36px,4vw,56px)}
+  .services-sub{color:var(--fg-2);max-width:36ch;margin:0}
+  .services-grid{margin-top:36px;display:grid; grid-template-columns:1fr 1fr; gap:14px;position:relative}
+  details.svc{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:18px;
+    transition:background .25s, border-color .25s, transform .25s;
+    overflow:hidden;
+  }
+  details.svc[open],details.svc:hover{border-color:var(--primary);background:color-mix(in srgb, var(--primary) 6%, var(--surface))}
+  details.svc summary{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:22px 26px; cursor:pointer; list-style:none;
+  }
+  details.svc summary::-webkit-details-marker{display:none}
+  .svc-num{font-family:var(--font-display);font-size:14px;color:var(--fg-3);width:36px;flex:0 0 36px}
+  details.svc[open] .svc-num{color:var(--primary)}
+  .svc-title{flex:1;font-family:var(--font-display);font-size:20px;font-weight:500}
+  .svc-arrow{
+    width:38px;height:38px;border-radius:50%;
+    background:color-mix(in srgb, var(--fg) 6%, transparent);
+    color:var(--fg);
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s, color .2s, transform .25s;
+    flex:0 0 38px;
+  }
+  details.svc:hover .svc-arrow{background:var(--accent);color:#fff}
+  details.svc[open] .svc-arrow{background:var(--primary);color:#fff;transform:rotate(45deg)}
+  .svc-body{padding:0 26px 22px 78px;color:var(--fg-2);font-size:14px;line-height:1.6}
+  .svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .svc-tags span{
+    font-family:var(--font-mono);
+    font-size:11px;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--fg-2);
+    background:color-mix(in srgb, var(--fg) 2%, transparent);
+  }
+  @media (max-width:780px){.services-grid{grid-template-columns:1fr}.services-wrap{padding:28px 22px}.svc-body{padding-left:26px}}
+
+  /* ================== VIDEO ================== */
+  .video{margin-top:var(--section-gap)}
+  .video-card{
+    position:relative;
+    border-radius:var(--r-xl);
+    overflow:hidden;
+    background:#0a0e14;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-soft);
+  }
+  .video-card .video-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:32px;
+    padding:36px 36px 0; flex-wrap:wrap;
+    position:relative; z-index:2; color:#fff;
+  }
+  .video-head h2{font-size:clamp(32px,3.6vw,52px); color:#fff;max-width:20ch}
+  .video-head .section-eyebrow{color:rgba(255,255,255,.7)}
+  .video-head .section-eyebrow:before{background:var(--accent)}
+  .video-head p{color:rgba(255,255,255,.7); max-width:34ch; margin:0; font-size:14px}
+  .video-frame{
+    position:relative; margin:28px 36px 36px;
+    border-radius:var(--r-lg); overflow:hidden;
+    aspect-ratio:16/9;
+    background:#000;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+  }
+  .video-frame video{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .video-frame .play-btn{
+    position:absolute; inset:0; margin:auto;
+    width:96px; height:96px; border-radius:50%;
+    background:rgba(255,255,255,.92); color:#0a0e14;
+    border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .25s, background .2s;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+    z-index:3;
+  }
+  .video-frame .play-btn:hover{transform:scale(1.08);background:#fff}
+  .video-frame .play-btn svg{margin-left:6px}
+  .video-frame.playing .play-btn{opacity:0; pointer-events:none}
+  .video-frame .veil{
+    position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.45) 100%);
+    transition:opacity .3s;
+    z-index:2;
+  }
+  .video-frame.playing .veil{opacity:0}
+  .video-meta{
+    position:absolute; left:24px; bottom:20px; z-index:2;
+    display:flex; gap:18px; color:#fff;
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .video-meta span{display:flex;align-items:center;gap:6px}
+  .video-meta span:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  @media (max-width:780px){
+    .video-card .video-head{padding:24px 22px 0}
+    .video-frame{margin:20px 22px 22px}
+    .video-frame .play-btn{width:64px;height:64px}
+  }
+
+  /* ================== STRIP ================== */
+  .strip{margin-top:80px;padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--strip-bg)}
+  .strip-track{
+    display:flex; gap:48px;
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(40px,6vw,84px);
+    white-space:nowrap;
+    animation:scroll 32s linear infinite;
+    align-items:center;
+    width:max-content;
+  }
+  .strip-track span{display:inline-flex;align-items:center;gap:48px}
+  .strip-track i{display:inline-flex; width:22px;height:22px;color:var(--accent)}
+  .strip-track em{font-style:normal;color:var(--fg-3)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ================== TESTIMONIALS ================== */
+  .testi{margin-top:var(--section-gap)}
+  .testi-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:32px}
+  .testi-h{font-size:clamp(36px,4vw,56px);max-width:18ch}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .quote{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--r-md); padding:28px;
+    display:flex; flex-direction:column; gap:18px;
+    transition:border-color .25s, transform .25s;
+    box-shadow:var(--shadow-soft);
+  }
+  .quote:hover{border-color:var(--primary);transform:translateY(-3px)}
+  .quote .mark{font-family:var(--font-display);font-size:56px;line-height:.4;color:var(--primary);height:24px}
+  .quote p{margin:0;color:var(--fg);font-size:15px;line-height:1.55}
+  .quote-author{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+  .avatar{
+    width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--primary-deep));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display); font-weight:600; color:#fff; font-size:14px;
+    flex:0 0 42px;
+  }
+  .quote-author b{display:block;font-weight:600;font-size:14px}
+  .quote-author span{display:block;font-size:12px;color:var(--fg-3)}
+  @media (max-width:860px){.testi-grid{grid-template-columns:1fr}}
+
+  /* ================== PARTNERS ================== */
+  .partners{margin-top:var(--section-gap)}
+  .partners-head{text-align:center; margin-bottom:32px}
+  .partners-head .section-eyebrow{justify-content:center}
+  .partners-head .section-eyebrow:before{display:none}
+  .partners-h{font-size:clamp(28px,3vw,42px);font-weight:500;color:var(--fg-2);max-width:24ch;margin:0 auto}
+  .partners-h em{font-style:normal;color:var(--fg)}
+  .partners-grid{
+    display:grid; grid-template-columns:repeat(9,1fr);
+    border:1px solid var(--line); border-radius:var(--r-md);
+    overflow:hidden; background:var(--surface);
+    box-shadow:var(--shadow-soft);
+  }
+  .partner{
+    aspect-ratio:5/3;
+    display:flex;align-items:center;justify-content:center;
+    border-right:1px solid var(--line);
+    padding:18px 16px;
+    transition:background .25s, transform .25s;
+    background:var(--partner-bg);
+  }
+  .partner:last-child{border-right:none}
+  .partner img{max-width:100%; max-height:64px; width:auto; height:auto; object-fit:contain; transition:transform .25s}
+  .partner:hover img{transform:scale(1.06)}
+  .partner.dark{background:#0f141c}
+  @media (max-width:980px){
+    .partners-grid{grid-template-columns:repeat(3,1fr)}
+    .partner{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .partner:nth-child(3n){border-right:none}
+    .partner:nth-last-child(-n+3){border-bottom:none}
+  }
+  @media (max-width:560px){
+    .partners-grid{grid-template-columns:repeat(2,1fr)}
+    .partner:nth-child(3n){border-right:1px solid var(--line)}
+    .partner:nth-child(2n){border-right:none}
+    .partner:nth-last-child(-n+3){border-bottom:1px solid var(--line)}
+    .partner:nth-last-child(-n+2){border-bottom:none}
+  }
+
+  /* ================== CTA ================== */
+  .cta{margin-top:var(--section-gap)}
+  .cta-card{
+    background:linear-gradient(135deg,#0e1a2e, #142544 60%, var(--primary));
+    border-radius:var(--r-xl);
+    padding:64px 56px;
+    position:relative; overflow:hidden;
+    display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:center;
+    color:#fff;
+    box-shadow:var(--shadow-soft);
+  }
+  .cta-card:before{
+    content:""; position:absolute; right:-100px; top:-100px;
+    width:380px; height:380px; border-radius:50%;
+    background:radial-gradient(circle, color-mix(in srgb, var(--accent) 60%, transparent), transparent 70%);
+  }
+  .cta-card h2{font-size:clamp(36px,4.5vw,60px); position:relative;max-width:14ch;color:#fff}
+  .cta-card .accent{color:var(--accent-soft)}
+  .cta-form{
+    display:flex; gap:10px; background:rgba(0,0,0,.3);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:999px; padding:8px; position:relative;
+    backdrop-filter:blur(8px);
+  }
+  .cta-form input{flex:1; background:transparent; border:none; outline:none; color:#fff; padding:10px 16px; font-family:inherit; font-size:14px; min-width:0;}
+  .cta-form input::placeholder{color:rgba(255,255,255,.5)}
+  .cta-form button{
+    background:var(--accent); color:#fff; border:none;
+    padding:10px 20px; border-radius:999px; cursor:pointer;
+    font-family:inherit; font-size:14px; font-weight:500;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:background .2s;
+    white-space:nowrap;
+  }
+  .cta-form button:hover{background:var(--accent-2)}
+  .cta-contact{display:flex;flex-direction:column;gap:14px;margin-top:24px;position:relative}
+  .cta-contact a{display:inline-flex;align-items:center;gap:12px;color:rgba(255,255,255,.9); font-size:15px;transition:color .2s}
+  .cta-contact a:hover{color:#fff}
+  .cta-contact .ico{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;flex:0 0 36px}
+  @media (max-width:860px){.cta-card{grid-template-columns:1fr; padding:40px 28px}}
+
+  /* ================== FOOTER ================== */
+  footer{margin-top:80px;padding:64px 24px 32px;border-top:1px solid var(--line)}
+  .foot{max-width:1240px;margin:0 auto}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+  .foot-brand img{height:32px;margin-bottom:18px}
+  .foot-brand p{color:var(--fg-2);font-size:14px;max-width:34ch;margin:0}
+  .foot-col h4{font-family:var(--font-body);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-3);font-weight:500;margin:0 0 18px}
+  .foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{color:var(--fg-2);font-size:14px;transition:color .2s}
+  .foot-col a:hover{color:var(--fg)}
+  .foot-col li.with-dot{display:flex;align-items:flex-start;gap:10px;color:var(--fg-2);font-size:14px;line-height:1.5}
+  .foot-col li.with-dot:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary);margin-top:8px;flex:0 0 6px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;gap:20px;flex-wrap:wrap}
+  .foot-bottom span{font-size:13px;color:var(--fg-3)}
+  .foot-socials{display:flex;gap:10px}
+  .foot-socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--fg-2);transition:background .2s, color .2s, border-color .2s}
+  .foot-socials a:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+  @media (max-width:780px){.foot-top{grid-template-columns:1fr 1fr;gap:32px}}
+
+  /* ================== REVEAL ================== */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+  .reveal[data-d="4"]{transition-delay:.32s}
+  .count{display:inline-block}
+
+  /* ================== TWEAKS PANEL ================== */
+  .tw-toggle{
+    position:fixed; right:18px; bottom:18px; z-index:200;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--ink); color:#fff;
+    border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+    transition:transform .25s, background .2s;
+  }
+  .tw-toggle:hover{transform:translateY(-2px) rotate(20deg);background:var(--primary)}
+  .tw-toggle.hidden{display:none}
+  .tw-panel{
+    position:fixed; right:18px; bottom:18px; z-index:201;
+    width:340px; max-height:calc(100vh - 36px);
+    background:#0f141c; color:#f3f5f9;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:24px;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    font-family:var(--font-body);
+  }
+  .tw-panel.open{display:flex}
+  .tw-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 18px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.02);
+  }
+  .tw-head h3{font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;letter-spacing:-0.01em}
+  .tw-head .tw-close{
+    width:30px;height:30px;border-radius:50%;border:none;
+    background:rgba(255,255,255,.08);color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+  }
+  .tw-head .tw-close:hover{background:rgba(255,255,255,.16)}
+  .tw-body{
+    overflow:auto; padding:12px 4px 16px 18px; flex:1;
+    scrollbar-width:thin;
+  }
+  .tw-body::-webkit-scrollbar{width:6px}
+  .tw-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1); border-radius:3px}
+  .tw-section{margin-bottom:18px; padding-right:14px}
+  .tw-label{
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    color:#737d8c; margin-bottom:8px; display:block;
+  }
+  .tw-options{display:flex; flex-wrap:wrap; gap:6px}
+  .tw-opt{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    color:#aab3c2;
+    padding:8px 12px; border-radius:999px;
+    font-size:12px; cursor:pointer;
+    transition:all .15s; font-family:inherit;
+    flex:1; min-width:0; text-align:center;
+    white-space:nowrap;
+  }
+  .tw-opt:hover{background:rgba(255,255,255,.08);color:#fff}
+  .tw-opt.active{background:#1d6fd1; color:#fff; border-color:#1d6fd1}
+  .tw-swatches{display:grid; grid-template-columns:repeat(5,1fr); gap:8px}
+  .tw-swatch{
+    aspect-ratio:1; border-radius:10px; cursor:pointer;
+    border:2px solid transparent; position:relative;
+    transition:transform .15s, border-color .15s;
+    display:flex; overflow:hidden;
+  }
+  .tw-swatch:hover{transform:translateY(-2px)}
+  .tw-swatch.active{border-color:#fff}
+  .tw-swatch span{flex:1}
+  .tw-slider-row{display:flex; align-items:center; gap:10px}
+  .tw-slider-row input{flex:1; accent-color:#1d6fd1}
+  .tw-slider-row b{font-family:var(--font-mono); font-size:11px; color:#aab3c2; min-width:44px; text-align:right}
+  .tw-foot{
+    padding:12px 18px; border-top:1px solid rgba(255,255,255,.08);
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(0,0,0,.2);
+  }
+  .tw-foot button{
+    background:transparent; color:#aab3c2; border:1px solid rgba(255,255,255,.1);
+    padding:7px 14px; border-radius:999px;
+    font-size:12px; cursor:pointer; font-family:inherit;
+    transition:all .15s;
+  }
+  .tw-foot button:hover{background:rgba(255,255,255,.06);color:#fff}
+  .tw-foot .tw-tip{font-size:11px; color:#737d8c; font-family:var(--font-mono); letter-spacing:.08em}
+  @media (max-width:520px){.tw-panel{width:calc(100vw - 24px);right:12px;bottom:12px}}
+</style>
+</head>
+<body data-theme="light" data-palette="bluered" data-typo="editorial" data-density="normal" data-case="mixed" data-texture="plain" data-anim="on" data-accent="swipe" data-hero-photo="image">
+
+<!-- ===================== NAV ===================== -->
+<div class="nav-wrap">
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="#">
+      <img src="assets/inaya-logo.png" alt="INAYA" />
+    </a>
+    <div class="nav-links">
+      <a href="#about">Agence</a>
+      <a href="#expertises">Expertises</a>
+      <a href="#services">Services</a>
+      <a href="#video">Showreel</a>
+      <a href="#partners">Partenaires</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">
+      <span class="dot"></span>
+      Démarrer un projet
+    </a>
+  </nav>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-card reveal">
+      <div class="hero-top">
+        <div class="hero-tag"><span class="pulse"></span> Douala · Cameroun</div>
+        <div class="hero-stars">
+          <span class="s">★★★★★</span>
+          <span>Agence de marketing numérique</span>
+        </div>
+      </div>
+
+      <svg class="spark" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true">
+        <path d="M20 0 L23 17 L40 20 L23 23 L20 40 L17 23 L0 20 L17 17 Z"/>
+      </svg>
+      <svg class="spark red" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true">
+        <path d="M20 0 L23 17 L40 20 L23 23 L20 40 L17 23 L0 20 L17 17 Z"/>
+      </svg>
+
+      <h1 class="hero-h">
+        Bâtir, gérer et promouvoir votre <span class="accent">marque</span> à l'échelle mondiale.
+      </h1>
+
+      <div class="hero-grid">
+        <p class="hero-lead">
+          Basée à Douala au Cameroun, INAYA réunit les meilleurs professionnels
+          du marketing numérique. Nous aidons les entreprises à s'adapter aux
+          nouvelles technologies et à saisir les opportunités d'innovation.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">Démarrer un projet <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#services">Nos services</a>
+        </div>
+        <div class="hero-meta">
+          <b><span class="count" data-to="7">0</span></b>
+          <span>pôles d'expertise intégrés</span>
+        </div>
+      </div>
+
+      <div class="hero-photo" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-row reveal">
+      <div class="stat"><b><span class="count" data-to="140">0</span><sup>+</sup></b><span>Marques accompagnées</span></div>
+      <div class="stat"><b><span class="count" data-to="7">0</span></b><span>Pôles d'expertise</span></div>
+      <div class="stat"><b><span class="count" data-to="98">0</span><sup>%</sup></b><span>Clients satisfaits</span></div>
+      <div class="stat"><b><span class="count" data-to="24">0</span><sup>/7</sup></b><span>Support & réactivité</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow reveal">À propos de INAYA</div>
+        <h2 class="about-h reveal" data-d="1">Une agence <span class="accent">camerounaise</span>, une ambition mondiale.</h2>
+      </div>
+      <div>
+        <p class="about-p reveal" data-d="1">
+          L'agence INAYA est une société basée à <b>Douala, au Cameroun</b>. Avec une équipe
+          des meilleurs professionnels du marketing numérique, INAYA aide les entreprises
+          à construire, gérer et promouvoir leur marque à l'échelle mondiale, ce qui
+          permet de répondre aux exigences précises de chaque client.
+        </p>
+        <p class="about-p reveal" data-d="2" style="margin-top:14px">
+          Nous permettons aux entreprises de s'adapter aux <b>nouvelles technologies</b>,
+          de comprendre et de saisir les <b>opportunités d'innovation</b> — du digital
+          au print, de la stratégie à l'animation 3D.
+        </p>
+        <div class="about-cards reveal" data-d="2">
+          <div class="img-slot team a">
+            <span class="img-tag">Studio · Douala</span>
+            <img src="assets/equipe-inaya.png" alt="L'équipe INAYA dans les bureaux de Douala" />
+          </div>
+          <div class="img-slot b" style="background:linear-gradient(160deg,var(--primary),var(--primary-deep));">
+            <span class="img-tag" style="background:var(--accent)">L'agence</span>
+            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:24px;color:#fff">
+              <div>
+                <div style="font-family:var(--font-display);font-size:34px;font-weight:600;line-height:1">10+</div>
+                <div style="font-size:12px;opacity:.85;margin-top:6px;letter-spacing:.04em">années à façonner des marques</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERTISES ===================== -->
+<section class="expertises" id="expertises">
+  <div class="container">
+    <div class="exp-head reveal">
+      <div>
+        <div class="section-eyebrow">Nos expertises</div>
+        <h2 class="exp-h">Trois leviers pour <span class="accent">transformer</span> votre marque.</h2>
+      </div>
+    </div>
+    <div class="exp-grid">
+      <article class="exp reveal" data-d="1">
+        <span class="exp-num">01</span>
+        <div class="exp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v13H3z"/><path d="M3 8h18"/><path d="M8 21h8M12 16v5"/><circle cx="7" cy="5.5" r=".6" fill="currentColor"/><circle cx="9" cy="5.5" r=".6" fill="currentColor"/></svg>
+        </div>
+        <h3>Digitalisation du point de vente</h3>
+        <p>Connecter vos boutiques, vos équipes terrain et votre marque grâce à des outils digitaux pensés pour fluidifier chaque étape du parcours.</p>
+      </article>
+      <article class="exp reveal" data-d="2">
+        <span class="exp-num">02</span>
+        <div class="exp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-3-8-6.5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4.5-3.5 8-8 11Z"/></svg>
+        </div>
+        <h3>Amélioration de l'expérience client</h3>
+        <p>Concevoir des parcours fluides, des interfaces engageantes et des moments de vérité qui fidélisent — en magasin comme en ligne.</p>
+      </article>
+      <article class="exp reveal" data-d="3">
+        <span class="exp-num">03</span>
+        <div class="exp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 14.6 8.4 21.5 9l-5.3 4.6L17.9 21 12 17.3 6.1 21 7.8 13.6 2.5 9l6.9-.6Z"/></svg>
+        </div>
+        <h3>Valorisation de l'image de marque</h3>
+        <p>Aligner votre identité, votre discours et vos prises de parole pour faire de votre marque un actif durable, désirable et reconnaissable.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-wrap reveal">
+      <div class="services-head">
+        <div>
+          <div class="section-eyebrow">Ce que nous faisons</div>
+          <h2 class="services-h">Nos <span class="accent">services</span></h2>
+        </div>
+        <p class="services-sub">
+          Une équipe pluridisciplinaire, un seul interlocuteur. Cliquez sur un service
+          pour découvrir notre périmètre d'intervention.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <details class="svc" open>
+          <summary><span class="svc-num">01</span><span class="svc-title">Solutions numériques</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Applications web, applications mobiles, développement SMS/USSD, intégrations API,
+            systèmes CRM, systèmes de gestion de la facturation, intégrations de VAS,
+            développement et conception de sites web.
+            <div class="svc-tags"><span>Web</span><span>Mobile</span><span>SMS / USSD</span><span>API</span><span>CRM</span><span>Billing</span><span>VAS</span></div>
+          </div>
+        </details>
+        <details class="svc">
+          <summary><span class="svc-num">02</span><span class="svc-title">Stratégie</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Nous apportons une vision long terme à votre entreprise : conseil stratégique
+            en communication et marketing, promotions, planification, négociation et achat
+            de médias, relations publiques, événementiel.
+            <div class="svc-tags"><span>Conseil</span><span>Média planning</span><span>RP</span><span>Événementiel</span></div>
+          </div>
+        </details>
+        <details class="svc">
+          <summary><span class="svc-num">03</span><span class="svc-title">Marketing digital</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Conseil en stratégie digitale, digitalisation du point de vente et du parcours
+            client, référencement, influence, contenu.
+            <div class="svc-tags"><span>SEO</span><span>Influence</span><span>Content</span><span>Parcours client</span></div>
+          </div>
+        </details>
+        <details class="svc">
+          <summary><span class="svc-num">04</span><span class="svc-title">Création</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Conception, rédaction et storytelling, direction artistique, branding et design,
+            production print et vidéo, édition.
+            <div class="svc-tags"><span>Branding</span><span>DA</span><span>Storytelling</span><span>Print</span><span>Vidéo</span></div>
+          </div>
+        </details>
+        <details class="svc">
+          <summary><span class="svc-num">05</span><span class="svc-title">Impression</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Production et livraison de tous les supports liés à la communication —
+            de l'affichage grand format à l'édition haut de gamme.
+            <div class="svc-tags"><span>Affichage</span><span>Édition</span><span>PLV</span></div>
+          </div>
+        </details>
+        <details class="svc">
+          <summary><span class="svc-num">06</span><span class="svc-title">Projet</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Nous contribuons à la mise en place d'écosystèmes culturels, entrepreneuriaux
+            et au développement participatif.
+            <div class="svc-tags"><span>Écosystèmes</span><span>Culture</span><span>Entrepreneuriat</span></div>
+          </div>
+        </details>
+        <details class="svc" style="grid-column:1 / -1">
+          <summary><span class="svc-num">07</span><span class="svc-title">Animation 3D / 2D</span><span class="svc-arrow">+</span></summary>
+          <div class="svc-body">
+            Création de vos vidéos d'animation, spots publicitaires, films institutionnels,
+            clips et courts-métrages 3D — style réaliste, semi-réaliste, motion design.
+            <div class="svc-tags"><span>Motion</span><span>3D</span><span>Spots TV</span><span>Films institutionnels</span><span>Clips</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO ===================== -->
+<section class="video" id="video">
+  <div class="container">
+    <div class="video-card reveal">
+      <div class="video-head">
+        <div>
+          <div class="section-eyebrow">Showreel</div>
+          <h2>Notre travail en <span class="accent" style="color:var(--accent-soft)">mouvement</span>.</h2>
+        </div>
+        <p>Quelques secondes pour saisir notre ADN : campagnes, motion design, films institutionnels et productions print à l'échelle de la sous-région.</p>
+      </div>
+      <div class="video-frame" id="video-frame">
+        <video id="reel" preload="metadata" playsinline poster="">
+          <source src="assets/showreel.mp4" type="video/mp4" />
+        </video>
+        <div class="veil"></div>
+        <div class="video-meta">
+          <span>2026</span>
+          <span>Showreel</span>
+          <span>Inaya · Douala</span>
+        </div>
+        <button class="play-btn" id="play-btn" aria-label="Lire la vidéo">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STRIP ===================== -->
+<section class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Stratégie <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></i> Création <em>+</em> Technologie <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></i> Impact</span>
+    <span>Stratégie <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></i> Création <em>+</em> Technologie <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg></i> Impact</span>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testi">
+  <div class="container">
+    <div class="testi-head reveal">
+      <div>
+        <div class="section-eyebrow">Témoignages</div>
+        <h2 class="testi-h">Ils nous ont fait <span class="accent">confiance</span>.</h2>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="quote reveal" data-d="1">
+        <div class="mark">"</div>
+        <p>INAYA a structuré toute notre digitalisation point de vente. Une équipe rigoureuse, à l'écoute, et qui livre vite — exactement ce que nous cherchions.</p>
+        <div class="quote-author"><div class="avatar">DM</div><div><b>Direction Marketing</b><span>Grande distribution — Cameroun</span></div></div>
+      </div>
+      <div class="quote reveal" data-d="2">
+        <div class="mark">"</div>
+        <p>Refonte d'identité, plateforme web et campagne d'activation : INAYA a tout piloté. Notre image de marque a pris une nouvelle dimension.</p>
+        <div class="quote-author"><div class="avatar" style="background:linear-gradient(135deg,var(--accent),#9b1f19)">DG</div><div><b>Direction Générale</b><span>Industrie pharmaceutique</span></div></div>
+      </div>
+      <div class="quote reveal" data-d="3">
+        <div class="mark">"</div>
+        <p>Plus qu'un prestataire, un vrai partenaire. INAYA comprend nos enjeux business et propose toujours la solution la plus pragmatique.</p>
+        <div class="quote-author"><div class="avatar">CM</div><div><b>Communication</b><span>Secteur jeux & loisirs</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTNERS ===================== -->
+<section class="partners" id="partners">
+  <div class="container">
+    <div class="partners-head reveal">
+      <div class="section-eyebrow">Partenaires & clients</div>
+      <h3 class="partners-h">Des marques <em>exigeantes</em> nous font confiance.</h3>
+    </div>
+    <div class="partners-grid reveal" data-d="1">
+      <div class="partner"><img src="assets/partners/brussels.jpeg" alt="Brussels Airlines" /></div>
+      <div class="partner"><img src="assets/partners/casino.jpeg" alt="Casino Supermarchés" /></div>
+      <div class="partner"><img src="assets/partners/citysport.png" alt="City Sport" /></div>
+      <div class="partner"><img src="assets/partners/domino.png" alt="Domino Marché" /></div>
+      <div class="partner"><img src="assets/partners/fnac.png" alt="Fnac" /></div>
+      <div class="partner"><img src="assets/partners/pharmalys.jpeg" alt="Pharmalys Laboratories" /></div>
+      <div class="partner"><img src="assets/partners/premierbet.png" alt="Premier Bet" /></div>
+      <div class="partner dark"><img src="assets/partners/rjc.jpeg" alt="La Royale des Jeux du Cameroun" /></div>
+      <div class="partner"><img src="assets/partners/superu.png" alt="Super U" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div>
+        <h2>Un projet en tête ? <span class="accent">Parlons-en.</span></h2>
+        <div class="cta-contact">
+          <a href="tel:+237656113333">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            (00237) 656 113 333
+          </a>
+          <a href="mailto:Contact@inayacom.com">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+            Contact@inayacom.com
+          </a>
+          <a href="#">
+            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            Douala, Cameroun
+          </a>
+        </div>
+      </div>
+      <div>
+        <form class="cta-form" onsubmit="event.preventDefault(); const b=this.querySelector('button'); b.textContent='Envoyé ✓'; b.style.background='var(--primary)';">
+          <input type="email" placeholder="votre@email.com" required />
+          <button type="submit">Être contacté →</button>
+        </form>
+        <div style="margin-top:18px;color:rgba(255,255,255,.7);font-size:13px;position:relative">
+          Réponse sous 24h ouvrées · brief gratuit
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/inaya-logo.png" alt="INAYA" />
+        <p>Agence de marketing numérique basée à Douala, au Cameroun. Stratégie, création, technologie et impression.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Agence</h4>
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#expertises">Expertises</a></li>
+          <li><a href="#video">Showreel</a></li>
+          <li><a href="#partners">Partenaires</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Solutions numériques</a></li>
+          <li><a href="#services">Stratégie & médias</a></li>
+          <li><a href="#services">Marketing digital</a></li>
+          <li><a href="#services">Création & branding</a></li>
+          <li><a href="#services">Animation 3D / 2D</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li class="with-dot">Douala, Cameroun</li>
+          <li class="with-dot">Contact@inayacom.com</li>
+          <li class="with-dot">(00237) 656 113 333</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 INAYA. Tous droits réservés. — Mentions légales · Confidentialité</span>
+      <div class="foot-socials">
+        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM8 19H5V8h3v11zM6.5 6.7a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V8h3v1.8c1.4-2.6 7-2.8 7 2.5V19z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.8 3.7-3.8 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.5-.9-2.2c-.8-.9-1.7-.9-2.2-1C16.5 3.5 12 3.5 12 3.5s-4.5 0-7.9.3c-.5 0-1.4 0-2.2 1C1.2 5.5 1 7 1 7S.8 8.8.8 10.5v1.6c0 1.7.2 3.5.2 3.5s.2 1.5.9 2.2c.8.9 1.9.9 2.4 1 1.8.2 7.7.3 7.7.3s4.5 0 7.9-.3c.5 0 1.4 0 2.2-1 .7-.7.9-2.2.9-2.2s.2-1.7.2-3.5v-1.6C23.2 8.8 23 7 23 7zM9.7 14V8.5l5.8 2.8L9.7 14z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== TWEAKS PANEL ===================== -->
+<button class="tw-toggle" id="tw-toggle" aria-label="Ouvrir les tweaks" title="Tweaks">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9 1.65 1.65 0 0 0 4.27 7.18l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+</button>
+<aside class="tw-panel" id="tw-panel" aria-label="Tweaks">
+  <div class="tw-head">
+    <h3>Tweaks</h3>
+    <button class="tw-close" id="tw-close" aria-label="Fermer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="tw-body" id="tw-body"></div>
+  <div class="tw-foot">
+    <span class="tw-tip">presets vivants</span>
+    <button id="tw-reset">Réinitialiser</button>
+  </div>
+</aside>
+
+<script>
+  // ===== Scroll reveal =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ===== Count-up =====
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const to = parseInt(el.dataset.to, 10);
+      const dur = 1400;
+      const start = performance.now();
+      const ease = t => 1 - Math.pow(1 - t, 3);
+      function tick(now){
+        const t = Math.min(1, (now - start) / dur);
+        el.textContent = Math.round(ease(t) * to);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      countIO.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count').forEach(el => countIO.observe(el));
+
+  // ===== Services accordion =====
+  document.querySelectorAll('details.svc').forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (d.open) document.querySelectorAll('details.svc').forEach(o => { if (o!==d) o.open=false; });
+    });
+  });
+
+  // ===== Nav scroll =====
+  const navWrap = document.querySelector('.nav-wrap');
+  window.addEventListener('scroll', () => { navWrap.style.top = window.scrollY > 40 ? '10px' : '14px'; });
+
+  // ===== Video player =====
+  const reel = document.getElementById('reel');
+  const frame = document.getElementById('video-frame');
+  const playBtn = document.getElementById('play-btn');
+  playBtn.addEventListener('click', () => {
+    if (reel.paused){
+      reel.play();
+      frame.classList.add('playing');
+      reel.setAttribute('controls','controls');
+    } else {
+      reel.pause();
+      frame.classList.remove('playing');
+      reel.removeAttribute('controls');
+    }
+  });
+  reel.addEventListener('ended', () => { frame.classList.remove('playing'); reel.removeAttribute('controls'); });
+
+  // ===== TWEAKS =====
+  const TWEAKS = [
+    { key:'theme', label:'Thème', type:'options', options:[
+      ['light','Clair'],['dark','Sombre'],['ivory','Ivoire']
+    ]},
+    { key:'palette', label:'Palette', type:'swatches', options:[
+      ['bluered',['#1d6fd1','#e1342c']],
+      ['bluemono',['#1d6fd1','#0c4b9c']],
+      ['ink',['#1a1814','#e1342c']],
+      ['solar',['#1d6fd1','#f5a623']],
+      ['forest',['#0f6e4a','#e1342c']],
+    ]},
+    { key:'typo', label:'Typographie', type:'options', options:[
+      ['editorial','Editorial'],['serif','Élégant'],['tech','Technique'],['modern','Moderne']
+    ]},
+    { key:'density', label:'Densité', type:'options', options:[
+      ['compact','Compact'],['normal','Standard'],['airy','Aéré']
+    ]},
+    { key:'radius', label:'Rayon des angles', type:'slider', min:0, max:48, step:2, unit:'px'},
+    { key:'accent', label:'Style d\'accent', type:'options', options:[
+      ['swipe','Soulignement'],['highlight','Surligneur'],['marker','Marqueur'],['box','Encadré']
+    ]},
+    { key:'case', label:'Casse des titres', type:'options', options:[
+      ['mixed','Mixte'],['caps','CAPITALES']
+    ]},
+    { key:'texture', label:'Texture de fond', type:'options', options:[
+      ['plain','Lisse'],['grid','Grille'],['dots','Points'],['grain','Grain']
+    ]},
+    { key:'heroPhoto', label:'Visuel du hero', type:'options', options:[
+      ['image','Photo'],['solid','Aplat couleur'],['pattern','Motif rayé']
+    ]},
+    { key:'anim', label:'Animations', type:'options', options:[
+      ['on','Activées'],['off','Désactivées']
+    ]},
+  ];
+
+  const DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "ivory",
+    "palette": "bluered",
+    "typo": "editorial",
+    "density": "normal",
+    "radius": 22,
+    "accent": "swipe",
+    "case": "mixed",
+    "texture": "plain",
+    "heroPhoto": "image",
+    "anim": "on"
+  }/*EDITMODE-END*/;
+
+  const state = { ...DEFAULTS };
+
+  function applyTweak(key, value){
+    state[key] = value;
+    const body = document.body;
+    if (key === 'heroPhoto'){
+      body.setAttribute('data-hero-photo', value);
+    } else if (key === 'radius'){
+      const v = parseInt(value,10);
+      document.documentElement.style.setProperty('--r-md', v + 'px');
+      document.documentElement.style.setProperty('--r-lg', Math.round(v * 1.55) + 'px');
+      document.documentElement.style.setProperty('--r-xl', Math.round(v * 2.2) + 'px');
+    } else {
+      body.setAttribute('data-' + key, value);
+    }
+  }
+
+  function persist(){
+    try{
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits: state}, '*');
+    }catch(e){}
+  }
+
+  function buildPanel(){
+    const body = document.getElementById('tw-body');
+    body.innerHTML = '';
+    TWEAKS.forEach(t => {
+      const sec = document.createElement('div');
+      sec.className = 'tw-section';
+      const label = document.createElement('span');
+      label.className = 'tw-label';
+      label.textContent = t.label;
+      sec.appendChild(label);
+
+      if (t.type === 'options'){
+        const wrap = document.createElement('div');
+        wrap.className = 'tw-options';
+        t.options.forEach(([val, lbl]) => {
+          const b = document.createElement('button');
+          b.className = 'tw-opt' + (state[t.key]===val ? ' active' : '');
+          b.textContent = lbl;
+          b.onclick = () => {
+            applyTweak(t.key, val);
+            wrap.querySelectorAll('.tw-opt').forEach(x=>x.classList.remove('active'));
+            b.classList.add('active');
+            persist();
+          };
+          wrap.appendChild(b);
+        });
+        sec.appendChild(wrap);
+      } else if (t.type === 'swatches'){
+        const wrap = document.createElement('div');
+        wrap.className = 'tw-swatches';
+        t.options.forEach(([val, colors]) => {
+          const s = document.createElement('div');
+          s.className = 'tw-swatch' + (state[t.key]===val ? ' active' : '');
+          s.title = val;
+          colors.forEach(c => {
+            const seg = document.createElement('span');
+            seg.style.background = c;
+            s.appendChild(seg);
+          });
+          s.onclick = () => {
+            applyTweak(t.key, val);
+            wrap.querySelectorAll('.tw-swatch').forEach(x=>x.classList.remove('active'));
+            s.classList.add('active');
+            persist();
+          };
+          wrap.appendChild(s);
+        });
+        sec.appendChild(wrap);
+      } else if (t.type === 'slider'){
+        const wrap = document.createElement('div');
+        wrap.className = 'tw-slider-row';
+        const input = document.createElement('input');
+        input.type='range'; input.min=t.min; input.max=t.max; input.step=t.step; input.value=state[t.key];
+        const out = document.createElement('b');
+        out.textContent = state[t.key] + (t.unit||'');
+        input.oninput = () => {
+          applyTweak(t.key, parseInt(input.value,10));
+          out.textContent = input.value + (t.unit||'');
+        };
+        input.onchange = () => persist();
+        wrap.appendChild(input); wrap.appendChild(out);
+        sec.appendChild(wrap);
+      }
+      body.appendChild(sec);
+    });
+  }
+
+  // Apply defaults on load
+  Object.keys(state).forEach(k => applyTweak(k, state[k]));
+  buildPanel();
+
+  // Toggle / activate / deactivate
+  const panel = document.getElementById('tw-panel');
+  const toggleBtn = document.getElementById('tw-toggle');
+  function openPanel(){
+    panel.classList.add('open');
+    toggleBtn.classList.add('hidden');
+  }
+  function closePanel(){
+    panel.classList.remove('open');
+    toggleBtn.classList.remove('hidden');
+    try{ window.parent.postMessage({type:'__edit_mode_dismissed'}, '*'); }catch(e){}
+  }
+  toggleBtn.addEventListener('click', openPanel);
+  document.getElementById('tw-close').addEventListener('click', closePanel);
+  document.getElementById('tw-reset').addEventListener('click', () => {
+    Object.assign(state, DEFAULTS);
+    Object.keys(state).forEach(k => applyTweak(k, state[k]));
+    buildPanel();
+    persist();
+  });
+
+  // Host integration — register listener FIRST, then announce availability
+  window.addEventListener('message', (e) => {
+    if (!e.data || typeof e.data !== 'object') return;
+    if (e.data.type === '__activate_edit_mode') openPanel();
+    else if (e.data.type === '__deactivate_edit_mode') {
+      panel.classList.remove('open');
+      toggleBtn.classList.remove('hidden');
+    }
+  });
+  try{ window.parent.postMessage({type:'__edit_mode_available'}, '*'); }catch(e){}
+</script>
+
+</body>
+</html>
