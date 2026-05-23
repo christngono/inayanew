@@ -887,6 +887,113 @@
   .tw-foot button:hover{background:rgba(255,255,255,.06);color:#fff}
   .tw-foot .tw-tip{font-size:11px;color:#737d8c;font-family:var(--font-mono);letter-spacing:.08em}
   @media (max-width:520px){.tw-panel{width:calc(100vw - 24px);right:12px;bottom:12px}}
+
+  /* ================== HERO ANIMATIONS ================== */
+
+  /* 1. BLOBS */
+  .hero-blob{
+    position:absolute; border-radius:50%;
+    filter:blur(72px); pointer-events:none; z-index:0;
+    will-change:transform;
+  }
+  .hero-blob-1{
+    width:520px; height:520px;
+    background:#FF6B9D; opacity:.55;
+    top:-120px; left:-80px;
+    animation:blob1 14s ease-in-out infinite alternate;
+  }
+  .hero-blob-2{
+    width:460px; height:460px;
+    background:#8B5CF6; opacity:.50;
+    top:40px; right:-60px;
+    animation:blob2 18s ease-in-out infinite alternate;
+  }
+  .hero-blob-3{
+    width:400px; height:400px;
+    background:#3B82F6; opacity:.45;
+    bottom:-80px; left:35%;
+    animation:blob3 22s ease-in-out infinite alternate;
+  }
+  @keyframes blob1{
+    0%  { transform:translate(0,0)   scale(1);   }
+    33% { transform:translate(60px,40px)  scale(1.15); }
+    66% { transform:translate(-30px,70px) scale(.90); }
+    100%{ transform:translate(40px,-50px) scale(1.10); }
+  }
+  @keyframes blob2{
+    0%  { transform:translate(0,0)    scale(1);   }
+    33% { transform:translate(-70px,50px)  scale(1.12); }
+    66% { transform:translate(40px,-60px)  scale(.92); }
+    100%{ transform:translate(-40px,30px)  scale(1.08); }
+  }
+  @keyframes blob3{
+    0%  { transform:translate(0,0)    scale(1);   }
+    33% { transform:translate(50px,-40px)  scale(1.18); }
+    66% { transform:translate(-60px,30px)  scale(.88); }
+    100%{ transform:translate(30px,60px)   scale(1.12); }
+  }
+
+  /* 2. TYPEWRITER */
+  .tw-cursor{
+    display:inline-block; width:3px;
+    background:currentColor; margin-left:3px;
+    vertical-align:baseline; height:.85em;
+    border-radius:2px;
+    animation:blink 500ms step-end infinite;
+  }
+  @keyframes blink{ 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* 3. CANVAS */
+  #hero-canvas{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    pointer-events:none; z-index:0;
+    border-radius:inherit;
+  }
+
+  /* 4. SPARKS enhanced */
+  .hero-ring{
+    position:absolute; border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.25);
+    pointer-events:none; z-index:0;
+  }
+  .hero-ring-1{ width:180px;height:180px; top:-40px; right:42%; animation:ringFloat 6s ease-in-out infinite; }
+  .hero-ring-2{ width:90px; height:90px;  bottom:60px; left:46%; animation:ringFloat 9s ease-in-out infinite reverse; }
+  @keyframes ringFloat{
+    0%,100%{ transform:translateY(0) rotate(0deg);   opacity:.3; }
+    50%    { transform:translateY(-18px) rotate(45deg); opacity:.7; }
+  }
+
+  /* 5. TILT 3D */
+  .hero-card{ transform-style:preserve-3d; }
+  .hero-card-inner{ transform-style:preserve-3d; }
+
+  /* 6. CTA SHIMMER */
+  .btn-primary{
+    overflow:hidden;
+  }
+  .btn-primary::after{
+    content:"";
+    position:absolute; top:0; left:-120%;
+    width:80px; height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+    transform:skewX(-20deg);
+    animation:shimmer 3.5s ease-in-out infinite;
+  }
+  .btn-primary{ position:relative; }
+  @keyframes shimmer{
+    0%,45%{ left:-120%; }
+    55%,100%{ left:140%; }
+  }
+
+  /* 7. BADGE GLOW */
+  .hero-tag{
+    animation:badgeGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes badgeGlow{
+    from{ box-shadow:0 0 0px 0px rgba(255,255,255,.0); }
+    to  { box-shadow:0 0 14px 4px rgba(255,255,255,.30); }
+  }
 </style>
 </head>
 <body data-theme="ivory" data-palette="bluered" data-typo="editorial" data-density="normal" data-case="mixed" data-texture="plain" data-anim="on" data-accent="swipe" data-hero-photo="image">
@@ -943,7 +1050,20 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero">
   <div class="container">
-    <div class="hero-card reveal">
+    <div class="hero-card reveal" id="hero-card">
+
+      <!-- 1. Gradient blobs -->
+      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+
+      <!-- 3. Canvas particules -->
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <!-- 4. Rings décoratifs -->
+      <div class="hero-ring hero-ring-1" aria-hidden="true"></div>
+      <div class="hero-ring hero-ring-2" aria-hidden="true"></div>
+
       <div class="hero-top">
         <div class="hero-tag"><span class="pulse"></span> Douala · Cameroun</div>
         <div class="hero-stars">
@@ -960,7 +1080,10 @@
       </svg>
 
       <h1 class="hero-h">
-        Bâtir, gérer et promouvoir votre <span class="accent">marque</span> à l'échelle mondiale.
+        Bâtir, gérer et promouvoir votre
+        <!-- 2. Typewriter -->
+        <span class="accent"><span id="typewriter">marque</span><span class="tw-cursor" aria-hidden="true"></span></span>
+        à l'échelle mondiale.
       </h1>
 
       <div class="hero-grid">
@@ -1635,6 +1758,140 @@ document.getElementById('tw-reset').addEventListener('click', () => {
   Object.keys(state).forEach(k => applyTweak(k, state[k]));
   buildPanel();
 });
+
+// ============================================================
+// HERO ANIMATIONS
+// ============================================================
+
+// ── 2. TYPEWRITER ────────────────────────────────────────────
+(function() {
+  const words   = ['marque','identité','présence','réputation','visibilité','impact'];
+  const el      = document.getElementById('typewriter');
+  if (!el) return;
+  let wi = 0, ci = 0, deleting = false;
+
+  function type() {
+    const word = words[wi];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+      setTimeout(type, 80);
+    } else {
+      el.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(type, 300); return; }
+      setTimeout(type, 50);
+    }
+  }
+  setTimeout(type, 1200);
+})();
+
+// ── 3. CANVAS PARTICULES + RÉPULSION SOURIS ──────────────────
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx    = canvas.getContext('2d');
+  const card   = document.getElementById('hero-card');
+  let W, H, mouse = { x: -999, y: -999 };
+  const COLORS = ['rgba(255,255,255,.55)','rgba(255,107,157,.70)','rgba(139,92,246,.65)','rgba(99,179,255,.65)'];
+  const N = 55;
+  let particles = [];
+
+  function resize() {
+    const r = card.getBoundingClientRect();
+    W = canvas.width  = r.width;
+    H = canvas.height = r.height;
+  }
+
+  function mkParticle() {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 0.18 + Math.random() * 0.32;
+    return {
+      x: Math.random() * W, y: Math.random() * H,
+      r: 1.2 + Math.random() * 2.2,
+      vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: 0.3 + Math.random() * 0.6,
+    };
+  }
+
+  resize();
+  particles = Array.from({ length: N }, mkParticle);
+  window.addEventListener('resize', resize);
+
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    mouse.x = e.clientX - r.left;
+    mouse.y = e.clientY - r.top;
+  });
+  card.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      // Repulsion
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 90) {
+        const force = (90 - dist) / 90;
+        p.vx += (dx / dist) * force * 0.7;
+        p.vy += (dy / dist) * force * 0.7;
+      }
+      // Damping
+      p.vx *= 0.97; p.vy *= 0.97;
+      p.x += p.vx; p.y += p.vy;
+      // Wrap
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      // Draw
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+    // Draw lines between close particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < 75) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(255,255,255,.12)';
+          ctx.globalAlpha = (1 - d / 75) * 0.5;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── 5. TILT 3D ───────────────────────────────────────────────
+(function() {
+  const card = document.getElementById('hero-card');
+  if (!card || !window.matchMedia('(hover:hover)').matches) return;
+  const MAX = 6;
+  card.addEventListener('mousemove', e => {
+    const r   = card.getBoundingClientRect();
+    const cx  = r.left + r.width  / 2;
+    const cy  = r.top  + r.height / 2;
+    const rx  = ((e.clientY - cy) / r.height) * -MAX;
+    const ry  = ((e.clientX - cx) / r.width ) *  MAX;
+    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.012)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform .6s cubic-bezier(.2,.8,.2,1)';
+    card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+    setTimeout(() => card.style.transition = '', 600);
+  });
+})();
 </script>
 
 </body>
