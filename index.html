@@ -148,25 +148,19 @@
   .bg-blob{
     position:fixed; inset:0; z-index:0; pointer-events:none;
     background:
-      radial-gradient(ellipse 100% 75% at -10% 115%,
-        rgba(58,152,240,.82) 0%,
-        rgba(100,185,255,.55) 28%,
-        rgba(180,222,255,.30) 50%,
-        transparent 68%),
-      radial-gradient(ellipse 75% 60% at 5% 108%,
-        rgba(40,130,220,.65) 0%,
-        rgba(120,200,255,.40) 38%,
-        transparent 62%),
-      radial-gradient(ellipse 120% 90% at -28% 130%,
-        rgba(200,232,255,.55) 0%,
-        transparent 55%),
-      radial-gradient(ellipse 55% 45% at -2% 92%,
-        rgba(30,118,210,.45) 0%,
-        transparent 52%),
-      radial-gradient(ellipse 180% 60% at 50% 100%,
-        rgba(220,238,255,.25) 0%,
-        transparent 50%),
-      #ffffff;
+      radial-gradient(ellipse 75% 55% at 5% 10%,
+        rgba(120,180,255,.80) 0%, transparent 60%),
+      radial-gradient(ellipse 65% 50% at 95% 0%,
+        rgba(255,140,200,.70) 0%, transparent 58%),
+      radial-gradient(ellipse 80% 60% at 80% 55%,
+        rgba(220,110,200,.55) 0%, transparent 62%),
+      radial-gradient(ellipse 70% 55% at 15% 85%,
+        rgba(80,140,255,.65) 0%, transparent 58%),
+      radial-gradient(ellipse 75% 55% at 90% 95%,
+        rgba(255,120,190,.60) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 65% at 50% 50%,
+        rgba(190,140,255,.30) 0%, transparent 68%),
+      linear-gradient(135deg, #6ea8f7 0%, #a87cdc 30%, #f07bb5 55%, #7db5f5 80%, #e87ecf 100%);
     transition:opacity .4s;
   }
   [data-theme="dark"] .bg-blob{ opacity:0; }
