@@ -290,14 +290,20 @@
   .hero{margin-top:20px}
   .hero-card{
     position:relative;
-    background:var(--hero-bg);
+    background:
+      radial-gradient(ellipse 80% 70% at 15% 10%, rgba(180,190,235,.90) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 65% at 85% 5%,  rgba(210,195,230,.75) 0%, transparent 52%),
+      radial-gradient(ellipse 90% 75% at 50% 55%, rgba(215,90,150,.80)  0%, transparent 58%),
+      radial-gradient(ellipse 80% 70% at 10% 95%, rgba(240,110,80,.75)  0%, transparent 55%),
+      radial-gradient(ellipse 75% 65% at 90% 95%, rgba(245,140,80,.70)  0%, transparent 52%),
+      linear-gradient(145deg, #b8c2e8 0%, #c87bbf 35%, #e85c8a 60%, #f07848 85%, #f5a060 100%);
     color:var(--ink);
     border-radius:var(--r-xl);
     padding:var(--hero-pad);
     overflow:hidden;
     isolation:isolate;
     min-height:560px;
-    border:1px solid var(--line);
+    border:1px solid rgba(255,255,255,.20);
     box-shadow:var(--shadow-soft);
   }
   .hero-top{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
